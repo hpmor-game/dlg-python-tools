@@ -1,0 +1,10 @@
+alias,name,color
+
+# Классические Алиса и Боб
+alice,Алиса,magenta
+bob,Боб,cyan
+
+# Персонажи рац!поттерианы
+harry,Гарри,blue
+hermione,Гермиона,magenta
+draco,Драко,green
