@@ -8,7 +8,7 @@
 - `parser.py`
 Реализует класс `Parser` с методом `parse()`, который превращает `.dlg`-файл в словарь
 
-**Использование:**
+  **Использование:**
 ```python
 from parser import Parser
 
@@ -21,7 +21,7 @@ print("В этом диалоге", len(dialogue["marks"]), "бранчей")
 - `printer.py`
 Печатает диалог из `.dlg`-файла в консоль с оформлением
 
-**Использование:**
+  **Использование:**
 ```bash
 $ python printer.py dialogues/alice_bob_case.dlg
 Алиса, зевая, заходит в комнату Боба
@@ -42,7 +42,7 @@ $ python printer.py dialogues/alice_bob_case.dlg
 - `dlg2json.py`
 Конвертирует `.dlg` в `.json`
 
-**Использование:**
+  **Использование:**
 ```bash
 $ python dlg2json.py dialogues/alice_bob_case.dlg test.json
 File has been saved as test.json
@@ -62,7 +62,8 @@ File has been saved as test.json
 ### Синтаксис
 Для написания диалога используются спецстмволы в начале строки.
 - `@` — обьявление говорящего
-**Использование:**
+
+  **Использование:**
 ```js
 @alias:emotion //Начало реплики персонажа alias с эмоцией
 ```
@@ -84,3 +85,8 @@ File has been saved as test.json
 - ``s`` зачёркнутый
 - ``u`` подчёркнутый
 - ``#``-код или имя из [этого списка](https://rich.readthedocs.io/en/stable/appendix/colors.html?highlight=color) изменяет цвет
+
+**Использование:**
+```bf
+Смотри, я говорю [b]жирным[/b], [i]курсивом[/i], [s]зачёркнутым[/s], [u]подчёркнутым[/u]
+```
