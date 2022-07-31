@@ -6,6 +6,8 @@ import sys
 from os import listdir
 from os.path import isfile, join
 
+from rich.pretty import pprint
+
 
 re_mnt = re.compile("^@(?P<author>[a-zA-Z0-9_]*)(?P<state>:[a-z0-9_])")
 re_cmd = re.compile("^:(?P<command>[a-z_]*)(?P<parameters>\(.*\))?[ ]*(?P<string>.*)$")
@@ -103,11 +105,11 @@ class Parser:
             }
         }
         
-        f = open(path)
+        f = open(path, encoding="utf-8")
         
         for l in f: #Main cycle
             if l.find(TOKENS["COMMENT"]) > -1:
-                if l.find("\"") < 0:
+                if l.find("[link=") < 0:  # Дикий костыль. У строк с ссылками не может быть комментов
                     l = l[:l.index(TOKENS["COMMENT"])]
             if l[0] in TOKENS.values():
                 if self.line_pool:
@@ -195,7 +197,7 @@ def choose_file(path="dialogues") -> str:
 
 def main():
     parser = Parser()
-    print(parser.parse(choose_file()))
+    pprint(parser.parse(choose_file()))
 
 
 if __name__ == "__main__":

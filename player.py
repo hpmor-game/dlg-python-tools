@@ -24,7 +24,7 @@ moods = {
 
 characters = {}  # Персонажи в формате alias: (name, color)
 
-with open('characters.csv', mode='r') as csv_file:
+with open('characters.csv', mode='r', encoding="utf-8") as csv_file:
     # Загружаем персонажей из characters.csv
     csv_reader = csv.DictReader(csv_file)
     line_count = 0
@@ -88,7 +88,10 @@ def print_menu(i):
         opts.append(opt["mark"])
         options.append(opt["mark"])
     choice = input("Введи число> ")
-    return opts[int(choice)]
+    if choice.isdecimal():
+        return opts[int(choice)]
+    else:
+        return opts[0]
 
 
 while True:
@@ -97,7 +100,6 @@ while True:
         line += 1
         
         if l["type"] == "line":
-            print(l)
             print_line(l)
             input()
         elif l["type"] == "menu":

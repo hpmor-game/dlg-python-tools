@@ -24,7 +24,7 @@ moods = {
 
 characters = {}  # Персонажи в формате alias: (name, color)
 
-with open('characters.csv', mode='r') as csv_file:
+with open('characters.csv', mode='r', encoding="utf-8") as csv_file:
     # Загружаем персонажей из characters.csv
     csv_reader = csv.DictReader(csv_file)
     line_count = 0
